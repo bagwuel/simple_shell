@@ -15,30 +15,36 @@ int main(int ac, char *av[])
 	char **command;
 
 	if (ac != 1)
-	{
-		perror("Usage: ./shell\n");
 		exit(EXIT_FAILURE);
-	}
 	while (1)
 	{
 		if (isatty(STDIN_FILENO))
-			write(1, prompt, strlen(prompt));
+			write(1, prompt, _strlen(prompt));
 		input = _prompt();
 		if (input == NULL)
 			exit(EXIT_FAILURE);
 		if (*input == '\n')
 			continue;
-		command = _tokenizer(input);
+		command = malloc(sizeof(char *) * 2);
 		if (command == NULL)
 		{
 			free(input);
 			continue;
 		}
-		comm = strdup(command[0]);
+		command[0] = strtok(input, "\0");
+		command[1] = NULL;
+		if (command == NULL)
+		{
+			free(command);
+			free(input);
+			continue;
+		}
+		comm = _strdup(command[0]);
 		if (command[0] == NULL)
 		{
-			write(1, comm, strlen(comm));
+			write(1, comm, _strlen(comm));
 			write(1, ": command not found\n", 20);
+			free(input);
 			continue;
 		}
 		if (_forkexec(command, av[0]) == 1)
@@ -46,6 +52,7 @@ int main(int ac, char *av[])
 			free(input);
 			continue;
 		}
+		free(input);
 	}
 	return (0);
 }

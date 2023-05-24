@@ -25,5 +25,7 @@ unsigned int _strspn(char *s, const char *accept);
 char *_strpbrk(char *s, const char *accept);
 void f_exit(char *status);
 int _atoi(char *s);
+char *_strdup(char *str);
+int _strlen(char *s);
 
 #endif
