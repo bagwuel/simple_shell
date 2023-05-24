@@ -25,17 +25,9 @@ int main(int ac, char *av[])
 			exit(EXIT_FAILURE);
 		if (*input == '\n')
 			continue;
-		command = malloc(sizeof(char *) * 2);
+		command = _tokenizer(input);
 		if (command == NULL)
 		{
-			free(input);
-			continue;
-		}
-		command[0] = strtok(input, "\0");
-		command[1] = NULL;
-		if (command == NULL)
-		{
-			free(command);
 			free(input);
 			continue;
 		}
@@ -44,7 +36,6 @@ int main(int ac, char *av[])
 		{
 			write(1, comm, _strlen(comm));
 			write(1, ": command not found\n", 20);
-			free(input);
 			continue;
 		}
 		if (_forkexec(command, av[0]) == 1)
@@ -52,7 +43,6 @@ int main(int ac, char *av[])
 			free(input);
 			continue;
 		}
-		free(input);
 	}
 	return (0);
 }
