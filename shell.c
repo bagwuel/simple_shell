@@ -1,6 +1,6 @@
 #include "main.h"
 
-int main(int ac, char *av[])
+int main(int ac, char **av, char **env)
 {
 	char *prompt = "#cisfun$ ";
 	char *line = NULL, *token;
@@ -51,6 +51,10 @@ int main(int ac, char *av[])
 			i++;
 		}
 		command[i] = NULL;
+		/*if (access(command[0], X_OK) != 0)
+		{
+			continue;
+		}*/
 		child_pid = fork();
 		if (child_pid == -1)
 		{
