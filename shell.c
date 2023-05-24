@@ -16,10 +16,7 @@ int main(int ac, char *av[], char **env)
 	char **command;
 
 	if (ac != 1)
-	{
-		perror("Usage: ./shell\n");
 		exit(EXIT_FAILURE);
-	}
 	while (1)
 	{
 		if (isatty(STDIN_FILENO))

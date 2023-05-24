@@ -12,7 +12,7 @@ char *_prompt(void)
 	size_t len = 0;
 	int i = 0;
 
-	if (getline(&line, &len, stdin) == -1)
+	if (_getline(&line, &len, 0) == -1)
 	{
 		free(line);
 		return (NULL);

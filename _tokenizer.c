@@ -22,12 +22,12 @@ char **_tokenizer(char *str)
 		perror("Failed to allocate memory\n");
 		return (NULL);
 	}
-	token = strtok(str, " \t");
+	token = _strtok(str, " \t");
 	i = 0;
 	while (token != NULL)
 	{
 		command[i] = token;
-		token = strtok(NULL, " \t");
+		token = _strtok(NULL, " \t");
 		i++;
 	}
 	command[i] = NULL;

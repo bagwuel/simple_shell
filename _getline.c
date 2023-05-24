@@ -11,8 +11,8 @@
 
 ssize_t _getline(char **lineptr, size_t *n, int fd)
 {
-	static ssize_t num_of_bytes, num_of_char = 0, i, buffer_size;
-	static char buffer[BUFFER_SIZE];
+	ssize_t num_of_bytes, num_of_char = 0, i, buffer_size;
+	char buffer[BUFFER_SIZE];
 	static char *tempptr;
 
 	if (lineptr == NULL || n == NULL || fd < 0)
@@ -52,5 +52,6 @@ ssize_t _getline(char **lineptr, size_t *n, int fd)
 	}
 	if (num_of_char == 0)
 		return (-1);
+	printf("%s\n", *lineptr);
 	return (num_of_char);
 }

@@ -17,7 +17,7 @@ char **_tokenizer(char *str);
 int _forkexec(char **command, char *av);
 char *_command_path(char **env, char *command);
 void _printenv(char **env);
-ssize_t getline(char **lineptr, size_t *n, FILE *stream);
+ssize_t _getline(char **lineptr, size_t *n, int fd);
 void *_realloc(void *ptr, size_t size);
 char *_memcpy(char *dest, char *src, unsigned int n);
 char *_strchr(char *s, char c);
@@ -28,5 +28,6 @@ int _atoi(char *s);
 char *_strdup(char *str);
 int _strlen(char *s);
 int _strcmp(char *s1, char *s2);
+char *_strtok(char *str, const char *delim);
 
 #endif
