@@ -27,5 +27,6 @@ void f_exit(char *status);
 int _atoi(char *s);
 char *_strdup(char *str);
 int _strlen(char *s);
+int _strcmp(char *s1, char *s2);
 
 #endif
