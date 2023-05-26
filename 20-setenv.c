@@ -98,14 +98,14 @@ int not_env(char *envar, unsigned int len, unsigned int envlen)
 }
 
 /**
- * _setenv - set environment variable
+ * setenv - set environment variable
  * @name: name of environment variable
  * @val: value of environment variable
  * @overwriter: indicated if an environment variable is to be over written
  *
  * Return: (0)
  */
-int _setenv(const char *name, const char *val, int overwriter)
+int setenv(const char *name, const char *val, int overwriter)
 {
 	unsigned int len;
 	char *envar;

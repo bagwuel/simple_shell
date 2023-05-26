@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
- * _unsetenv - unsets an environment variable
+ * unsetenv - unsets an environment variable
  * @name: name of environment variable
  *
  * Return: return -1 on failur 0 on success
  */
 
-int _unsetenv(const char *name)
+int unsetenv(const char *name)
 {
 	unsigned int index;
 	int i, j, env_at;

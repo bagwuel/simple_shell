@@ -45,6 +45,6 @@ int _exit_cmd(char **tokens);
 int _env_cmd(char **tokens);
 int _print_env(void);
 char *_getenv(const char *name);
-int _setenv(const char *name, const char *value, int overwrite);
-int _unsetenv(const char *name);
+int setenv(const char *name, const char *value, int overwrite);
+int unsetenv(const char *name);
 #endif
