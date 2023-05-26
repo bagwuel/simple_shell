@@ -2,7 +2,7 @@
 
 /**
  * _getline - gets a line of input from a file
- * @line: buffer to store input
+ * @input: buffer to store input
  * @n: size of buffer
  * @status: the exit status
  *
